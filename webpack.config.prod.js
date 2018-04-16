@@ -13,12 +13,15 @@ module.exports = {
     vendor: ['react', 'react-dom', 'prop-types', 'redux', 'react-redux'],
   },
   output: {
-    filename: '[name].[hash].js',
-    chunkFilename: '[name].[chunkhash].js',
+    filename: '[name].[chunkhash:12].js',
+    chunkFilename: '[name].[chunkhash:12].js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
   },
   devtool: 'source-map',
+  performance: {
+    hints: false,
+  },
   optimization: {
     runtimeChunk: {
       name: 'runtime',
@@ -41,9 +44,7 @@ module.exports = {
         vendor: {
           name: 'vendor',
           chunks: 'initial',
-          priority: -10,
-          reuseExistingChunk: false,
-          test: /node_modules\/(.*)\.js/,
+          test: /node_modules/,
         },
         styles: {
           name: 'styles',
@@ -88,8 +89,7 @@ module.exports = {
     }),
     new webpack.HashedModuleIdsPlugin(),
     new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css',
-      chunkFilename: '[name].[chunkhash].css',
+      filename: '[name].[contenthash:12].css',
     }),
   ],
 };
