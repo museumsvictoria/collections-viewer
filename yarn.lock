@@ -1238,6 +1238,14 @@ braces@^2.3.0, braces@^2.3.1:
     split-string "^3.0.2"
     to-regex "^3.0.1"
 
+breakpoint-sass@^2.7.1:
+  version "2.7.1"
+  resolved "https://registry.yarnpkg.com/breakpoint-sass/-/breakpoint-sass-2.7.1.tgz#8ef6c4744dcc25ba83d969b6c9a17e5daa29980a"
+
+breakpoint-slicer@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/breakpoint-slicer/-/breakpoint-slicer-2.0.0.tgz#dc70c63de9ed76057bb4285fabb2303151c9045c"
+
 brorand@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/brorand/-/brorand-1.1.0.tgz#12c25efe40a45e3c323eb8675a0a0ce57b22371f"
@@ -5568,7 +5576,7 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@^15.5.10, prop-types@^15.6.0, prop-types@^15.6.1:
+prop-types@^15.6.0, prop-types@^15.6.1:
   version "15.6.1"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.1.tgz#36644453564255ddda391191fb3a125cbdf654ca"
   dependencies:
@@ -5750,13 +5758,6 @@ react-redux@^5.0.7:
     lodash-es "^4.17.5"
     loose-envify "^1.1.0"
     prop-types "^15.6.0"
-
-react-typekit@^1.1.3:
-  version "1.1.3"
-  resolved "https://registry.yarnpkg.com/react-typekit/-/react-typekit-1.1.3.tgz#0a1f731a47dc1ffbd8496ccf7ccaea869a644cbd"
-  dependencies:
-    lodash "^4.17.4"
-    prop-types "^15.5.10"
 
 react@^16.3.1:
   version "16.3.1"
@@ -6114,6 +6115,10 @@ require-uncached@^1.0.3:
 requires-port@1.0.x, requires-port@1.x.x, requires-port@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/requires-port/-/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
+
+reset-css@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/reset-css/-/reset-css-3.0.0.tgz#9b421d34fefc6e5d5b915ee7bfd72b1bc19cfbb0"
 
 resolve-cwd@^2.0.0:
   version "2.0.0"

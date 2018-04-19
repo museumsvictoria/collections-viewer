@@ -5,7 +5,7 @@ import * as systemActions from '../actions/system';
 function* fetchData() {
   let moreDataToFetch = true;
   let dataUrl =
-    'https://collections.museumvictoria.com.au/api/search?classification=Centenary+of+victoria&hasimages=yes';
+    'https://collections.museumvictoria.com.au/api/search?keyword=Models+%26+Modelmaking&hasimages=yes';
   let data = [];
 
   while (moreDataToFetch) {
@@ -13,7 +13,7 @@ function* fetchData() {
     const newData = yield response.json;
     data = data.concat(newData);
 
-    if (response.link.next) {
+    if (response.link && response.link.next) {
       dataUrl = response.link.next.url;
     } else {
       moreDataToFetch = false;

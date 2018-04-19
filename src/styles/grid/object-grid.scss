@@ -1,0 +1,37 @@
+.object-grid {
+  display: flex;
+
+  @include at('s') {
+    width: calc(100vw - 20px);
+    margin: 10px 0;
+  }
+
+  @include at('m') {
+    width: calc(100vw - (20px + (100vw - 100%)));
+    margin: 10px 0;
+  }
+
+  @include from('l') {
+    width: calc(100vw - (40px + (100vw - 100%)));
+    margin: 20px 0;
+  }
+
+  .grid-item {
+    @include at('s') {
+      padding: 10px;
+    }
+
+    @include at('m') {
+      padding: 10px;
+    }
+
+    @include from('l') {
+      padding: 20px;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+}

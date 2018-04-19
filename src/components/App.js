@@ -1,7 +1,6 @@
 import '../styles/main.scss';
 import React from 'react';
 import { hot } from 'react-hot-loader';
-import Typekit from 'react-typekit';
 import ObjectGrid from '../containers/ObjectGrid';
 
 class App extends React.Component {
@@ -9,7 +8,6 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <ObjectGrid />
-        <Typekit kitId="mkm3pqn" />
       </React.Fragment>
     );
   }

@@ -1,24 +1,21 @@
+@import '~reset-css/reset.css';
+@import '~breakpoint-sass';
+@import '~breakpoint-slicer';
+@import './type';
+@import './variables';
+@import './grid/object-grid';
+
 body {
-  background: #fff;
-  color: #000;
+  background: $white;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  touch-action: manipulation;
+  -webkit-overflow-scrolling: touch;
+  margin: 0;
+  padding: 0;
 }
 
-.object-grid {
+#root {
   display: flex;
-  margin-left: -30px;
-  width: auto;
-
-  .column {
-    padding-left: 30px;
-    background-clip: padding-box;
-  }
-
-  .grid-item {
-    margin-bottom: 30px;
-
-    img {
-      display: block;
-      max-width: 100%;
-    }
-  }
+  justify-content: center;
 }

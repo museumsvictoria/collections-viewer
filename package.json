@@ -16,6 +16,8 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    "breakpoint-sass": "^2.7.1",
+    "breakpoint-slicer": "^2.0.0",
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^0.28.11",
     "eslint": "^4.19.1",
@@ -32,6 +34,7 @@
     "optimize-css-assets-webpack-plugin": "^4.0.0",
     "prettier": "^1.11.1",
     "redux-logger": "^3.0.6",
+    "reset-css": "^3.0.0",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
     "uglifyjs-webpack-plugin": "^1.2.4",
@@ -48,7 +51,6 @@
     "react-hot-loader": "^4.0.1",
     "react-masonry-css": "^1.0.10",
     "react-redux": "^5.0.7",
-    "react-typekit": "^1.1.3",
     "redux": "^3.7.2",
     "redux-saga": "^0.16.0"
   }

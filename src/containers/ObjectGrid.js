@@ -10,7 +10,7 @@ class ObjectGrid extends React.Component {
 
     return (
       <Masonry
-        breakpointCols={{ default: 4 }}
+        breakpointCols={{ default: 4, 1100: 3, 700: 2, 500: 1 }}
         className="object-grid"
         columnClassName="column"
       >
