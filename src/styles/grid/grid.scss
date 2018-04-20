@@ -1,4 +1,4 @@
-.object-grid {
+.grid {
   display: flex;
 
   @include at('s') {
@@ -16,7 +16,7 @@
     margin: 20px 0;
   }
 
-  .grid-item {
+  .grid-object {
     @include at('s') {
       padding: 10px;
     }

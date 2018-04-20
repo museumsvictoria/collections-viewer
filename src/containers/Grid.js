@@ -2,28 +2,28 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Masonry from 'react-masonry-css';
-import GridItem from '../components/GridItem';
+import GridObject from '../components/GridObject';
 
-class ObjectGrid extends React.Component {
+class Grid extends React.Component {
   render() {
     const { objects } = this.props;
 
     return (
       <Masonry
         breakpointCols={{ default: 4, 1100: 3, 700: 2, 500: 1 }}
-        className="object-grid"
+        className="grid"
         columnClassName="column"
       >
         {objects &&
           objects.map(object => (
-            <GridItem key={object.id} id={object.id} media={object.media} />
+            <GridObject key={object.id} thumbnail={object.images[0]} />
           ))}
       </Masonry>
     );
   }
 }
 
-ObjectGrid.propTypes = {
+Grid.propTypes = {
   objects: PropTypes.array.isRequired,
 };
 
@@ -33,4 +33,4 @@ function mapStateToProps({ system }) {
   };
 }
 
-export default connect(mapStateToProps, null)(ObjectGrid);
+export default connect(mapStateToProps, null)(Grid);
