@@ -1,4 +1,8 @@
-var transform = require('js-object-transform');
+import transform from 'js-object-transform';
+import articleTransformer from './transformers/articleTransformer';
+import itemTransformer from './transformers/itemTransformer';
+import speciesTransformer from './transformers/speciesTransformer';
+import specimenTransformer from './transformers/specimenTransformer';
 
 export const validateObject = object => {
   if (!object) return false;
@@ -8,25 +12,12 @@ export const validateObject = object => {
   return true;
 };
 
-export const transformObject = object => {
-  switch (object.recordType) {
-    case 'article':
-      return transform(object, articleTransformer);
-    case 'item':
-      return transform(object, itemTransformer);
-    default:
-      throw 'cannot determine type of object';
-  }
+const transformers = {
+  article: articleTransformer,
+  item: itemTransformer,
+  species: speciesTransformer,
+  specimen: specimenTransformer,
 };
 
-const articleTransformer = {
-  id: src => src.id,
-  title: src => src.title,
-  images: src => src.media.filter(m => m.type === 'image'),
-};
-
-const itemTransformer = {
-  id: src => src.id,
-  title: src => src.objectName,
-  images: src => src.media.filter(m => m.type === 'image'),
-};
+export const transformObject = object =>
+  transform(object, transformers[object.recordType]);
