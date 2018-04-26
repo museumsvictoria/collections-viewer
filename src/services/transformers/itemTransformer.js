@@ -30,6 +30,7 @@ const itemTransformer = {
     ]),
   detail: src =>
     createMarkup([
+      { term: 'Registration number', value: src.registrationNumber },
       {
         term: 'Location',
         value: src.museumLocation
@@ -84,10 +85,7 @@ const itemTransformer = {
       { term: 'Number of Pages', value: src.indigenousCulturesPages },
       { term: 'Inscriptions', value: src.inscription },
       { term: 'Model Name or Number', value: joinStrings(src.modelNames) },
-      {
-        term: 'Brand Names',
-        value: convertBrands(src.brands),
-      },
+      { term: 'Brand Names', value: convertBrands(src.brands) },
       { term: 'Context Number', value: src.archeologyContextNumber },
       { term: 'Site', value: src.archeologySite },
       {

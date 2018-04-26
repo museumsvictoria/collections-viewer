@@ -30,7 +30,7 @@ export const convertTaxonomy = taxonomy => {
 
   return [
     { term: 'Taxon Name', value: taxonomy.taxonName },
-    { term: 'Author and date of publication', value: taxonomy.author },
+    { term: 'Scientific Author', value: taxonomy.author },
     { term: 'Preferred Common name', value: taxonomy.commonName },
     {
       term: 'Other Common Names',

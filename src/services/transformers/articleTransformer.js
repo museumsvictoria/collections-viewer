@@ -1,4 +1,4 @@
-import { createMarkup } from '../utilities';
+import { createMarkup, joinStrings } from '../utilities';
 
 const articleTransformer = {
   id: src => src.id,
@@ -8,6 +8,17 @@ const articleTransformer = {
     createMarkup([
       { term: 'Summary', value: src.contentSummary },
       { value: src.content, noWrap: true },
+    ]),
+  detail: src =>
+    createMarkup([
+      { term: 'Keywords', value: joinStrings(src.keywords) },
+      { term: 'Localities', value: joinStrings(src.localities) },
+      { term: 'Authors', value: joinStrings(src.authors.map(a => a.fullName)) },
+      {
+        term: 'Contributors',
+        value: joinStrings(src.contributors.map(c => c.fullName)),
+      },
+      { term: 'Article types', value: joinStrings(src.types) },
     ]),
 };
 
