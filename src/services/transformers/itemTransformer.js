@@ -1,11 +1,10 @@
+import { createMarkup, convertNewlines, joinStrings } from '../utilities';
 import {
-  createMarkup,
-  convertNewlines,
-  joinStrings,
   convertAssociations,
   convertBrands,
   convertTaxonomy,
-} from '../utilities';
+  convertDimensions,
+} from './miscTransformers';
 
 const itemTransformer = {
   id: src => src.id,
@@ -31,6 +30,12 @@ const itemTransformer = {
     ]),
   detail: src =>
     createMarkup([
+      {
+        term: 'Location',
+        value: src.museumLocation
+          ? joinStrings([location.gallery, location.venue])
+          : 'Not on display (currently in storage)',
+      },
       { term: 'Collection Names', value: joinStrings(src.collectionNames) },
       { term: 'Collecting Areas', value: joinStrings(src.collectingAreas) },
       { term: 'Acquisition Information', value: src.acquisitionInformation },
@@ -44,7 +49,9 @@ const itemTransformer = {
       { term: 'Date Collected', value: src.indigenousCulturesDateCollected },
       {
         term: src.tradeLiteraturePrimaryRole,
-        value: src.tradeLiteraturePrimaryName,
+        value: src.tradeLiteraturePrimaryRole
+          ? src.tradeLiteraturePrimaryName
+          : null,
       },
       { term: 'Publisher', value: src.artworkPublisher },
       { term: 'Manufacture Name', value: src.archeologyManufactureName },
@@ -141,6 +148,22 @@ const itemTransformer = {
       { term: 'Classification', value: joinStrings(src.classifications) },
       ...convertTaxonomy(src.taxonomy),
       { term: 'Type Status', value: src.typeStatus },
+      { term: 'Identified By', value: src.identifiedBy },
+      { term: 'Date Identified', value: src.dateIdentified },
+      { term: 'Category', value: src.category },
+      { term: 'Discipline', value: src.discipline },
+      { term: 'Type of item', value: src.type },
+      ...convertDimensions(src.dimensions),
+      { term: 'Model Scale', value: src.modelScale },
+      { term: 'Shape', value: src.shape },
+      {
+        term: 'References',
+        value: joinStrings(
+          [src.references, joinStrings(src.bibliographies, '<br />')],
+          '<br />',
+        ),
+      },
+      { term: 'Keywords', value: joinStrings(src.keywords) },
     ]),
 };
 

@@ -1,8 +1,13 @@
+// Replace any newlines with break tags
 export const convertNewlines = string =>
   string
     ? String(string).replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, `$1<br />$2`)
     : null;
 
+// Create markup based on terms and values.
+// Will remove any elements containing null values.
+// Will then create heading tag for term, will accept null values.
+// Will then create paragraph tag for value unless noWrap is specified.
 export const createMarkup = array =>
   array.filter(element => element.value).map(element => {
     return [
@@ -13,64 +18,9 @@ export const createMarkup = array =>
       .join('');
   });
 
+// Concatenate array of strings, accepts separator
 export const joinStrings = (array, separator = ', ') => {
   if (!array.length) return null;
 
   return array.filter(element => element).join(separator);
-};
-
-export const convertAssociations = associations => {
-  if (!associations || !associations.length) return { value: null };
-
-  return associations.map(association => ({
-    term: association.type,
-    value: joinStrings([
-      association.name,
-      association.streetAddresss,
-      association.locality,
-      association.region,
-      association.state,
-      association.country,
-      association.date,
-      association.comments,
-    ]),
-  }));
-};
-
-export const convertBrands = brands =>
-  joinStrings(
-    brands.map(
-      brand => (brand.name ? `${brand.name} (${brand.productType})` : null),
-    ),
-  );
-
-export const convertTaxonomy = taxonomy => {
-  if (!taxonomy || !taxonomy.length) return { value: null };
-
-  return [
-    { term: 'Taxon Name', value: taxonomy.taxonName },
-    { term: 'Author and date of publication', value: taxonomy.author },
-    { term: 'Preferred Common name', value: taxonomy.commonName },
-    {
-      term: 'Other Common Names',
-      value: joinStrings(taxonomy.otherCommonNames),
-    },
-    { term: 'Kingdom', value: taxonomy.kingdom },
-    { term: 'Phylum', value: taxonomy.phylum },
-    { term: 'Subphylum', value: taxonomy.subphylum },
-    { term: 'Superclass', value: taxonomy.superclass },
-    { term: 'Class', value: taxonomy.class },
-    { term: 'Subclass', value: taxonomy.subclass },
-    { term: 'Superorder', value: taxonomy.superorder },
-    { term: 'Order', value: taxonomy.order },
-    { term: 'Suborder', value: taxonomy.suborder },
-    { term: 'Infraorder', value: taxonomy.infraorder },
-    { term: 'Superfamily', value: taxonomy.superfamily },
-    { term: 'Family', value: taxonomy.family },
-    { term: 'Subfamily', value: taxonomy.subfamily },
-    { term: 'Genus', value: `<em>${taxonomy.genus}</em>` },
-    { term: 'Subgenus', value: `<em>${taxonomy.subgenus}</em>` },
-    { term: 'Species Name', value: `<em>${taxonomy.species}</em>` },
-    { term: 'Subspecies', value: `<em>${taxonomy.subspecies}</em>` },
-  ];
 };
