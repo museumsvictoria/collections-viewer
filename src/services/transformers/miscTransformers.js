@@ -61,3 +61,46 @@ export const convertDimensions = dimensions =>
     term: dimension.configuration ? dimension.configuration : 'Dimensions',
     value: joinStrings([dimension.dimensions, dimension.comments], '<br />'),
   }));
+
+export const convertStorages = storages =>
+  joinStrings(
+    storages.map(storage =>
+      joinStrings(
+        [
+          storage.nature,
+          storage.form,
+          storage.fixativeTreatment,
+          storage.medium,
+        ],
+        ' ',
+      ),
+    ),
+  );
+
+export const convertCollectionEvent = collectionEvent => {
+  if (!collectionEvent || !collectionEvent.length) return { value: null };
+
+  return [
+    { term: 'Expedition Name', value: collectionEvent.expeditionName },
+    { term: 'Collected By', value: collectionEvent.collectedBy },
+    {
+      term: 'Collection Event Code',
+      value: collectionEvent.collectionEventCode,
+    },
+    { term: 'Sampling Method', value: collectionEvent.samplingMethod },
+    {
+      term: 'Date Visited From',
+      value: collectionEvent.dateVisitedFrom
+        ? new Date(collectionEvent.dateVisitedFrom).toLocaleDateString('en-AU')
+        : null,
+    },
+    {
+      term: 'Date Visited To',
+      value: collectionEvent.dateVisitedTo
+        ? new Date(collectionEvent.dateVisitedTo).toLocaleDateString('en-AU')
+        : null,
+    },
+    { term: 'Depth To (m)', value: collectionEvent.depthTo },
+    { term: 'Depth From (m)', value: collectionEvent.depthFrom },
+  ];
+};

@@ -60,7 +60,6 @@ const itemTransformer = {
       { term: 'Date Issued', value: src.numismaticsDateIssued },
       { term: 'Date Issued', value: src.philatelyDateIssued },
       { term: 'Publication Date', value: src.tradeLiteraturePublicationDate },
-      { term: 'Publication Date', value: src.tradeLiteraturePublicationDate },
       ...convertAssociations(src.associations),
       {
         term: 'Individuals Identified',
