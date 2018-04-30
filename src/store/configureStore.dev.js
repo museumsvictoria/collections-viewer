@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { createLogger } from 'redux-logger';
-import rootReducer from '../reducers/rootReducer';
+import rootReducer from '../reducers';
 import rootSaga from '../sagas';
 
 const configureStore = preloadedState => {
@@ -21,8 +21,8 @@ const configureStore = preloadedState => {
   sagaMiddleware.run(rootSaga);
 
   if (module.hot) {
-    module.hot.accept('../reducers/rootReducer', () => {
-      store.replaceReducer(require('../reducers/rootReducer').default);
+    module.hot.accept('../reducers', () => {
+      store.replaceReducer(require('../reducers').default);
     });
 
     module.hot.accept('../sagas', () => {

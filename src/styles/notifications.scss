@@ -1,0 +1,32 @@
+.notification {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  width: 100%;
+  z-index: 999999;
+  color: $white;
+  font-size: 1.6vmax;
+  font-weight: 700;
+  height: 5vmax;
+  margin-top: -5vmax;
+  line-height: 5vmax;
+  text-align: center;
+  transition: margin-top 200ms ease-in-out;
+
+  &.hide {
+    visibility: visible;
+    margin-top: -5vmax;
+  }
+  &.show {
+    visibility: visible;
+    margin-top: 0px;
+  }
+  &.success {
+    background: $green;
+  }
+  &.error {
+    background: $red;
+  }
+}
