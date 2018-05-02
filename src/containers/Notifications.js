@@ -6,6 +6,11 @@ import classnames from 'classnames';
 import * as notificationActions from '../actions/notifications';
 
 class Notifications extends React.Component {
+  static propTypes = {
+    notifications: PropTypes.object.isRequired,
+    actions: PropTypes.object.isRequired,
+  };
+
   hideNotification = e => {
     const { actions } = this.props;
 
@@ -31,11 +36,6 @@ class Notifications extends React.Component {
     );
   }
 }
-
-Notifications.propTypes = {
-  notifications: PropTypes.object.isRequired,
-  actions: PropTypes.object.isRequired,
-};
 
 const mapState = ({ notifications }) => ({
   notifications,

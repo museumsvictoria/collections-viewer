@@ -5,6 +5,10 @@ import Masonry from 'react-masonry-css';
 import GridObject from '../components/GridObject';
 
 class Grid extends React.Component {
+  static propTypes = {
+    objects: PropTypes.array.isRequired,
+  };
+
   render() {
     const { objects } = this.props;
 
@@ -26,10 +30,6 @@ class Grid extends React.Component {
     );
   }
 }
-
-Grid.propTypes = {
-  objects: PropTypes.array.isRequired,
-};
 
 const mapState = ({ system }) => ({
   objects: system.objects,

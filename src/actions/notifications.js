@@ -1,22 +1,18 @@
 export const NOTIFICATION_SHOW = 'NOTIFICATION_SHOW';
 export const NOTIFICATION_HIDE = 'NOTIFICATION_HIDE';
 
-function showNotification(text, type, persist) {
-  return {
-    type: NOTIFICATION_SHOW,
-    payload: {
-      text,
-      type,
-      persist,
-    },
-  };
-}
+const showNotification = (text, type, persist) => ({
+  type: NOTIFICATION_SHOW,
+  payload: {
+    text,
+    type,
+    persist,
+  },
+});
 
-export function hideNotification() {
-  return {
-    type: NOTIFICATION_HIDE,
-  };
-}
+export const hideNotification = () => ({
+  type: NOTIFICATION_HIDE,
+});
 
 export const showSuccess = (text, persist = false) =>
   showNotification(text, 'success', persist);
