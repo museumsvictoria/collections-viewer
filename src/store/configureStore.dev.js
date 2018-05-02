@@ -1,35 +1,40 @@
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
+import { connectRoutes } from 'redux-first-router';
 import createSagaMiddleware from 'redux-saga';
 import { createLogger } from 'redux-logger';
-import rootReducer from '../reducers';
+
+import * as reducers from '../reducers';
 import rootSaga from '../sagas';
+import routesMap from './routesMap';
 
 const configureStore = preloadedState => {
   const sagaMiddleware = createSagaMiddleware();
 
-  const middleware = [
+  const { reducer, middleware, enhancer } = connectRoutes(routesMap, {
+    basename: '/',
+  });
+
+  const rootReducer = combineReducers({ ...reducers, location: reducer });
+  const middlewares = applyMiddleware(
     createLogger({
       collapsed: true,
     }),
     sagaMiddleware,
-  ];
+    middleware,
+  );
+  const enhancers = compose(enhancer, middlewares);
 
-  const enhanced = [applyMiddleware(...middleware)];
-
-  const store = createStore(rootReducer, preloadedState, compose(...enhanced));
+  const store = createStore(rootReducer, preloadedState, enhancers);
 
   sagaMiddleware.run(rootSaga);
 
   if (module.hot) {
     module.hot.accept('../reducers', () => {
-      store.replaceReducer(require('../reducers').default);
-    });
-
-    module.hot.accept('../sagas', () => {
-      createSagaMiddleware().run(require('../sagas').default);
+      store.replaceReducer(
+        combineReducers({ ...require('../reducers'), location: reducer }),
+      );
     });
   }
-
   return store;
 };
 

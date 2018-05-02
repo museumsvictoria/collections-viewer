@@ -1,18 +1,23 @@
-import { createStore, applyMiddleware } from 'redux';
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
+import { connectRoutes } from 'redux-first-router';
 import createSagaMiddleware from 'redux-saga';
-import rootReducer from '../reducers';
+
+import * as reducers from '../reducers';
 import rootSaga from '../sagas';
+import routesMap from './routesMap';
 
 const configureStore = preloadedState => {
   const sagaMiddleware = createSagaMiddleware();
 
-  const middleware = [sagaMiddleware];
+  const { reducer, middleware, enhancer } = connectRoutes(routesMap, {
+    basename: '/',
+  });
 
-  const store = createStore(
-    rootReducer,
-    preloadedState,
-    applyMiddleware(...middleware),
-  );
+  const rootReducer = combineReducers({ ...reducers, location: reducer });
+  const middlewares = applyMiddleware(sagaMiddleware, middleware);
+  const enhancers = compose(enhancer, middlewares);
+
+  const store = createStore(rootReducer, preloadedState, enhancers);
 
   sagaMiddleware.run(rootSaga);
 

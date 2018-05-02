@@ -7,6 +7,7 @@ module.exports = {
   entry: ['babel-polyfill', './src/index.js'],
   output: {
     filename: 'bundle.js',
+    publicPath: '/',
   },
   devtool: 'eval-source-map',
   module: {

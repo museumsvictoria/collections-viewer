@@ -1,8 +1,2 @@
-import { combineReducers } from 'redux';
-import system from './system';
-import notifications from './notifications';
-
-export default combineReducers({
-  system,
-  notifications,
-});
+export { default as system } from './system';
+export { default as notifications } from './notifications';

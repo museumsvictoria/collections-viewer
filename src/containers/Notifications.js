@@ -6,10 +6,6 @@ import classnames from 'classnames';
 import * as notificationActions from '../actions/notifications';
 
 class Notifications extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   hideNotification = e => {
     const { actions } = this.props;
 
@@ -41,16 +37,12 @@ Notifications.propTypes = {
   actions: PropTypes.object.isRequired,
 };
 
-function mapStateToProps({ notifications }) {
-  return {
-    notifications,
-  };
-}
+const mapState = ({ notifications }) => ({
+  notifications,
+});
 
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(notificationActions, dispatch),
-  };
-}
+const mapDispatch = dispatch => ({
+  actions: bindActionCreators(notificationActions, dispatch),
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(Notifications);
+export default connect(mapState, mapDispatch)(Notifications);

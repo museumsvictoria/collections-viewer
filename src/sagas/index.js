@@ -29,7 +29,7 @@ function* fetchData() {
 function* showNotifications(action) {
   if (!action.payload.persist) {
     yield call(delay, 2000);
-    if (yield select(state => state.notification.active)) {
+    if (yield select(state => state.notifications.active)) {
       yield put(notificationActions.hideNotification());
     }
   }

@@ -16,7 +16,11 @@ class Grid extends React.Component {
       >
         {objects &&
           objects.map(object => (
-            <GridObject key={object.id} thumbnail={object.images[0]} />
+            <GridObject
+              key={object.id}
+              id={object.id}
+              thumbnail={object.images[0]}
+            />
           ))}
       </Masonry>
     );
@@ -27,10 +31,8 @@ Grid.propTypes = {
   objects: PropTypes.array.isRequired,
 };
 
-function mapStateToProps({ system }) {
-  return {
-    objects: system.objects,
-  };
-}
+const mapState = ({ system }) => ({
+  objects: system.objects,
+});
 
-export default connect(mapStateToProps, null)(Grid);
+export default connect(mapState)(Grid);
