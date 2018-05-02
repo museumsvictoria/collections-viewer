@@ -9,7 +9,7 @@ export default class GridObject extends React.Component {
     return (
       <Link to={`/${id}`}>
         <div className="grid-object">
-          <img src={thumbnail.medium.uri} alt={thumbnail.alternativeText} />
+          <img src={thumbnail.uri} alt={thumbnail.alternativeText} />
         </div>
       </Link>
     );

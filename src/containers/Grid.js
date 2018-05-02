@@ -19,7 +19,7 @@ class Grid extends React.Component {
             <GridObject
               key={object.id}
               id={object.id}
-              thumbnail={object.images[0]}
+              thumbnail={object.thumbnail}
             />
           ))}
       </Masonry>

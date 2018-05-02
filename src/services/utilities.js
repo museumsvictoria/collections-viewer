@@ -24,3 +24,10 @@ export const joinStrings = (array, separator = ', ') => {
 
   return array.filter(element => element).join(separator);
 };
+
+export const createThumbnail = image => ({
+  uri: image.medium.uri,
+  alternativeText: image.alternativeText
+    ? image.alternativeText
+    : image.caption,
+});

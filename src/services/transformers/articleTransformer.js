@@ -1,9 +1,10 @@
-import { createMarkup, joinStrings } from '../utilities';
+import { createMarkup, joinStrings, createThumbnail } from '../utilities';
 
 const articleTransformer = {
   id: src => src.id,
   title: src => src.displayTitle,
   images: src => src.media.filter(m => m.type === 'image'),
+  thumbnail: src => createThumbnail(src.media.find(m => m.type === 'image')),
   content: src =>
     createMarkup([
       { term: 'Summary', value: src.contentSummary },

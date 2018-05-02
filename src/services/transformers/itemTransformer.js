@@ -1,4 +1,9 @@
-import { createMarkup, convertNewlines, joinStrings } from '../utilities';
+import {
+  createMarkup,
+  convertNewlines,
+  joinStrings,
+  createThumbnail,
+} from '../utilities';
 import {
   convertAssociations,
   convertBrands,
@@ -10,6 +15,7 @@ const itemTransformer = {
   id: src => src.id,
   title: src => src.displayTitle,
   images: src => src.media.filter(m => m.type === 'image'),
+  thumbnail: src => createThumbnail(src.media.find(m => m.type === 'image')),
   summary: src =>
     createMarkup([
       { term: 'Summary', value: convertNewlines(src.objectSummary) },
