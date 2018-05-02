@@ -65,7 +65,14 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|gif|woff2|otf)$/,
-        use: ['file-loader'],
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              outputPath: 'static/',
+            },
+          },
+        ],
       },
       {
         test: /\.(scss|css)$/,
