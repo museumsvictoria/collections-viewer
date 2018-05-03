@@ -1,0 +1,36 @@
+body.modal-active {
+  overflow: hidden;
+}
+
+.object-modal {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: $transparent-white;
+  box-shadow: 0 0 0 999px $transparent-white;
+  outline: 999px solid $transparent-white;
+  overflow-y: auto;
+
+  &.fade-enter {
+    opacity: 0.01;
+  }
+
+  &.fade-enter.fade-enter-active {
+    opacity: 1;
+    transition: opacity 300ms linear;
+  }
+
+  &.fade-leave {
+    opacity: 1;
+  }
+
+  &.fade-leave.fade-leave-active {
+    opacity: 0.01;
+    transition: opacity 300ms linear;
+  }
+}

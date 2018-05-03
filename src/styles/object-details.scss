@@ -1,0 +1,12 @@
+.object-details {
+  @include from('s') {
+    max-width: 800px;
+  }
+
+  .images {
+    img {
+      display: block;
+      max-width: 100%;
+    }
+  }
+}

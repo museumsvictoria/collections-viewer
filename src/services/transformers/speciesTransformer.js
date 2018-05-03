@@ -6,14 +6,14 @@ const speciesTransformer = {
   title: src => src.displayTitle,
   images: src => src.media.filter(m => m.type === 'image'),
   thumbnail: src => createThumbnail(src.media.find(m => m.type === 'image')),
-  summary: src =>
+  content: src =>
     createMarkup([
       { term: 'General Description', value: src.generalDescription },
       { term: 'Biology', value: src.biology },
       { term: 'Distribution', value: src.distribution },
       { term: 'Habitat', value: src.habitat },
     ]),
-  detail: src =>
+  subContent: src =>
     createMarkup([
       { term: 'Animal Type', value: src.animalType },
       { term: 'Animal SubType', value: src.animalSubType },

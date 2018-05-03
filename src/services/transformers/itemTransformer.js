@@ -16,7 +16,7 @@ const itemTransformer = {
   title: src => src.displayTitle,
   images: src => src.media.filter(m => m.type === 'image'),
   thumbnail: src => createThumbnail(src.media.find(m => m.type === 'image')),
-  summary: src =>
+  content: src =>
     createMarkup([
       { term: 'Summary', value: convertNewlines(src.objectSummary) },
       { term: 'Description of Content', value: src.isdDescriptionOfContent },
@@ -34,7 +34,7 @@ const itemTransformer = {
       { term: 'Edge Description', value: src.numismaticsEdgeDescription },
       { term: 'Significance', value: convertNewlines(src.significance) },
     ]),
-  detail: src =>
+  subContent: src =>
     createMarkup([
       { term: 'Registration number', value: src.registrationNumber },
       {

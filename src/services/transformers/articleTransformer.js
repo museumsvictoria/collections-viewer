@@ -10,7 +10,7 @@ const articleTransformer = {
       { term: 'Summary', value: src.contentSummary },
       { value: src.content, noWrap: true },
     ]),
-  detail: src =>
+  subContent: src =>
     createMarkup([
       { term: 'Keywords', value: joinStrings(src.keywords) },
       { term: 'Localities', value: joinStrings(src.localities) },

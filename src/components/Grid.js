@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Masonry from 'react-masonry-css';
-import GridObject from '../components/GridObject';
+import ObjectThumbnail from '../components/ObjectThumbnail';
 
 class Grid extends React.Component {
   static propTypes = {
@@ -20,7 +20,7 @@ class Grid extends React.Component {
       >
         {objects &&
           objects.map(object => (
-            <GridObject
+            <ObjectThumbnail
               key={object.id}
               id={object.id}
               thumbnail={object.thumbnail}

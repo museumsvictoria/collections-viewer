@@ -3,6 +3,7 @@ import { fork, select, call, put, takeEvery } from 'redux-saga/effects';
 import Api from '../services/api';
 import * as systemActions from '../actions/system';
 import * as notificationActions from '../actions/notifications';
+import * as routes from '../store/routesMap';
 
 function* fetchData() {
   let moreDataToFetch = true;
@@ -22,8 +23,19 @@ function* fetchData() {
     }
   }
 
+  const location = yield select(state => state.location);
+  const activeObject =
+    location.type === routes.OBJECT_PAGE
+      ? data.find(
+          object =>
+            object.id === `${location.payload.type}/${location.payload.id}`,
+        )
+      : null;
+
+  yield put(
+    systemActions.recievedObjects(data, activeObject ? activeObject : null),
+  );
   yield put(notificationActions.showSuccess(`Collection data loaded`));
-  yield put(systemActions.recievedObjects(data));
 }
 
 function* showNotifications(action) {

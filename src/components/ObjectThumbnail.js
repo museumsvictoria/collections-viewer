@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'redux-first-router-link';
 
-export default class GridObject extends React.Component {
+export default class ObjectThumbnail extends React.Component {
   static propTypes = {
     id: PropTypes.string.isRequired,
     thumbnail: PropTypes.shape({
