@@ -4,9 +4,42 @@
   }
 
   .images {
+    margin: 20px 0;
     img {
       display: block;
       max-width: 100%;
+    }
+  }
+
+  .title {
+    margin: 20px 0;
+  }
+
+  .content {
+    margin: 20px 0;
+
+    > div {
+      margin: 20px 0;
+    }
+
+    h3 {
+      margin: 10px 0;
+    }
+  }
+
+  .sub-content {
+    margin: 20px 0;
+
+    > div {
+      display: flex;
+      margin: 15px 0;
+    }
+
+    h3 {
+      flex: 0 0 25%;
+    }
+
+    p {
     }
   }
 }

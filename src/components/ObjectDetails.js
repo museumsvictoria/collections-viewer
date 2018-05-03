@@ -34,6 +34,11 @@ export default class ObjectDetails extends React.Component {
             ))}
         </div>
         <div className="sub-content">
+          {object.subContent && (
+            <div className="title">
+              <h3>More Information</h3>
+            </div>
+          )}
           {object.subContent &&
             object.subContent.map((c, idx) => (
               <div key={idx} dangerouslySetInnerHTML={{ __html: c }} />

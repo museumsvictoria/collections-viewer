@@ -11,3 +11,45 @@
 body {
   font-family: 'source-sans-pro-regular';
 }
+
+.object-details {
+  .title {
+    font-family: 'circular-medium';
+    font-size: 40px;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+  }
+
+  .content {
+    h3 {
+      font-family: 'circular-medium';
+      font-size: 21px;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.2;
+    }
+  }
+
+  .sub-content {
+    .title h3 {
+      font-family: 'circular-medium';
+      font-size: 21px;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+    }
+
+    h3 {
+      font-size: 16px;
+      line-height: 1.2;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.2;
+    }
+  }
+}
