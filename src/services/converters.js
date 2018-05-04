@@ -1,4 +1,4 @@
-import { joinStrings } from '../utilities';
+import { joinStrings } from './utilities';
 
 export const convertAssociations = associations => {
   if (!associations || !associations.length) return { value: null };
@@ -104,3 +104,18 @@ export const convertCollectionEvent = collectionEvent => {
     { term: 'Depth From (m)', value: collectionEvent.depthFrom },
   ];
 };
+
+export const convertThumbnail = image => ({
+  uri: image.small.uri,
+  alternativeText: image.alternativeText
+    ? image.alternativeText
+    : image.caption,
+});
+
+export const convertImages = images =>
+  images.map(image => ({
+    alternativeText: image.alternativeText,
+    caption: image.caption,
+    mediumUri: image.medium.uri,
+    largeUri: image.large.uri,
+  }));

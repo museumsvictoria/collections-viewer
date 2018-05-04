@@ -1,21 +1,18 @@
-import {
-  createMarkup,
-  convertNewlines,
-  joinStrings,
-  createThumbnail,
-} from '../utilities';
+import { createMarkup, convertNewlines, joinStrings } from '../utilities';
 import {
   convertTaxonomy,
   convertStorages,
   convertAssociations,
   convertCollectionEvent,
-} from './miscTransformers';
+  convertThumbnail,
+  convertImages,
+} from '../converters';
 
 const specimenTransformer = {
   id: src => src.id,
   title: src => src.displayTitle,
-  images: src => src.media.filter(m => m.type === 'image'),
-  thumbnail: src => createThumbnail(src.media.find(m => m.type === 'image')),
+  images: src => convertImages(src.media.filter(m => m.type === 'image')),
+  thumbnail: src => convertThumbnail(src.media.find(m => m.type === 'image')),
   content: src =>
     createMarkup([
       { term: 'Summary', value: convertNewlines(src.objectSummary) },

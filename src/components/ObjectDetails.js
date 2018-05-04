@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ObjectImages from './ObjectImages';
 
 export default class ObjectDetails extends React.Component {
   static propTypes = {
@@ -15,15 +16,9 @@ export default class ObjectDetails extends React.Component {
 
   render() {
     const { object } = this.props;
-
     return (
       <div className="object-details">
-        <div className="images">
-          <img
-            src={object.images[0].medium.uri}
-            alt={object.images[0].alternativeText}
-          />
-        </div>
+        <ObjectImages images={object.images} />
         <div className="title">
           <h1>{object.title}</h1>
         </div>

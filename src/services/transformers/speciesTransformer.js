@@ -1,11 +1,15 @@
-import { createMarkup, joinStrings, createThumbnail } from '../utilities';
-import { convertTaxonomy } from './miscTransformers';
+import { createMarkup, joinStrings } from '../utilities';
+import {
+  convertTaxonomy,
+  convertThumbnail,
+  convertImages,
+} from '../converters';
 
 const speciesTransformer = {
   id: src => src.id,
   title: src => src.displayTitle,
-  images: src => src.media.filter(m => m.type === 'image'),
-  thumbnail: src => createThumbnail(src.media.find(m => m.type === 'image')),
+  images: src => convertImages(src.media.filter(m => m.type === 'image')),
+  thumbnail: src => convertThumbnail(src.media.find(m => m.type === 'image')),
   content: src =>
     createMarkup([
       { term: 'General Description', value: src.generalDescription },
