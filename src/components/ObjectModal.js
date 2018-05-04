@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { TransitionGroup, Transition } from 'transition-group';
-import BodyClassName from 'react-body-classname';
+import ScrollLock from 'react-scrolllock';
 import ObjectDetails from './ObjectDetails';
 
 class ObjectModal extends React.Component {
@@ -25,8 +25,8 @@ class ObjectModal extends React.Component {
       >
         {activeObject && (
           <Transition key={activeObject.id}>
-            <BodyClassName className="modal-active" />
             <div className="object-modal">
+              <ScrollLock />
               <ObjectDetails object={activeObject} />
             </div>
           </Transition>

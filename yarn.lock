@@ -2581,7 +2581,7 @@ execa@^0.7.0:
     signal-exit "^3.0.0"
     strip-eof "^1.0.0"
 
-exenv@^1.2.1:
+exenv@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/exenv/-/exenv-1.2.2.tgz#2ae78e85d9894158670b03d47bec1f03bd91bb9d"
 
@@ -5764,13 +5764,6 @@ react-addons-transition-group@^15.4.2:
   dependencies:
     react-transition-group "^1.2.0"
 
-react-body-classname@^1.2.0:
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/react-body-classname/-/react-body-classname-1.2.0.tgz#25ee56a46e2f8326dc5d688c4b658de081753957"
-  dependencies:
-    prop-types "^15.5.6"
-    react-side-effect "^1.1.0"
-
 react-dom@^16.3.1:
   version "16.3.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.3.1.tgz#6a3c90a4fb62f915bdbcf6204422d93a7d4ca573"
@@ -5794,6 +5787,10 @@ react-masonry-css@^1.0.10:
   version "1.0.10"
   resolved "https://registry.yarnpkg.com/react-masonry-css/-/react-masonry-css-1.0.10.tgz#9a510937d6a645615df7ff8bb585ff08b18dceaf"
 
+react-prop-toggle@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-prop-toggle/-/react-prop-toggle-1.0.2.tgz#8b0b7e74653606b1427cfcf6c4eaa9198330568e"
+
 react-redux@^5.0.7:
   version "5.0.7"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-5.0.7.tgz#0dc1076d9afb4670f993ffaef44b8f8c1155a4c8"
@@ -5805,12 +5802,12 @@ react-redux@^5.0.7:
     loose-envify "^1.1.0"
     prop-types "^15.6.0"
 
-react-side-effect@^1.1.0:
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/react-side-effect/-/react-side-effect-1.1.5.tgz#f26059e50ed9c626d91d661b9f3c8bb38cd0ff2d"
+react-scrolllock@^2.0.7:
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/react-scrolllock/-/react-scrolllock-2.0.7.tgz#3b879e1fe308fc900ab76e226e9be594c41226fd"
   dependencies:
-    exenv "^1.2.1"
-    shallowequal "^1.0.1"
+    exenv "^1.2.2"
+    react-prop-toggle "^1.0.2"
 
 react-transition-group@^1.2.0:
   version "1.2.1"
@@ -6494,7 +6491,7 @@ shallow-clone@^1.0.0:
     kind-of "^5.0.0"
     mixin-object "^2.0.1"
 
-shallowequal@^1.0.1, shallowequal@^1.0.2:
+shallowequal@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/shallowequal/-/shallowequal-1.0.2.tgz#1561dbdefb8c01408100319085764da3fcf83f8f"
 
