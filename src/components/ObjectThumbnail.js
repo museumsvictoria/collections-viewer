@@ -15,11 +15,11 @@ export default class ObjectThumbnail extends React.Component {
     const { id, thumbnail } = this.props;
 
     return (
-      <Link to={`/${id}`}>
-        <div className="grid-object">
+      <div className="grid-object">
+        <Link to={`/${id}`}>
           <img src={thumbnail.uri} alt={thumbnail.alternativeText} />
-        </div>
-      </Link>
+        </Link>
+      </div>
     );
   }
 }

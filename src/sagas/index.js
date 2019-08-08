@@ -8,7 +8,7 @@ import * as routes from '../store/routesMap';
 function* fetchData() {
   let moreDataToFetch = true;
   let dataUrl =
-    'https://collections.museumvictoria.com.au/api/search?keyword=Models+%26+Modelmaking&hasimages=yes';
+    'https://collections.museumvictoria.com.au/api/search?recordtype=item&collectingarea=social+spaces+%26+youth&hasimages=yes';
   let data = [];
 
   while (moreDataToFetch) {
